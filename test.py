@@ -7,7 +7,7 @@ def test_1():
 
 def test_2():
 	assert f.puiss(-1,2) == 1
-	assert f.puiss(-1,3) == 1
+	assert f.puiss(-1,3) == -1
 	assert f.puiss(-1,-1) == -1
 	assert f.puiss(-1,-2) == 1
-	assert f.puiss(-2,-1) == 0,5
+	assert f.puiss(-2,-1) == -0.5
