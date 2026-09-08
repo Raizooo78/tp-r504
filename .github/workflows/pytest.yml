@@ -8,13 +8,17 @@ jobs:
         python-version: ["3.8", "3.10"]
     steps:
       - uses: actions/checkout@v3
+      - name: Infos contexte
+        run: |
+          echo "Nom branche: ${{ github.ref }}"
+          echo "OS: ${{ runner.os }}"
       - name: Set up Python for Demo
-        run: | 
-          echo "Nom branche : ${{ github.ref }}"
-          echo "OS : ${{ runner.os }}"
-          python --version
         uses: actions/setup-python@v4
         with:
-         python-version: ${{ matrix.python-version }}
+          python-version: ${{ matrix.python-version }}
+      - name: Check Python version
+        run: python --version
+      - name: Install pytest
+        run: pip install pytest
       - name: Run tests
-        run: sudo apt install python3-pytest; python3 -m pytest TP1/test.py
+        run: python3 -m pytest TP1/test.py
